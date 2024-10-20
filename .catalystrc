@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "8850000000008001",
+      "name": "taxiAppBackend",
+      "domain": {
+        "id": "50022064906",
+        "name": "taxiappbackend-60032281711.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60032281711",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}
