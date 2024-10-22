@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Taxi Service Bill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        /* Header styling with background color */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            margin-bottom: 20px;
+            border-radius:10px;
+        }
+
+        .logo {
+            width: 50px; /* Adjust the size as needed */
+        }
+
+        .address {
+            flex: 1; /* Allow the address to take available space */
+            text-align: left; /* Align the address text to the left */
+            margin-left: 20px; /* Space between logo and address */
+        }
+
+        .bill-info {
+            text-align: right; /* Align bill info to the right */
+        }
+
+        /* Table styling */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd; /* Add border to the table */
+        }
+
+        .tbody td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .thead td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .thead tr {
+            padding: 10px;
+        }
+
+        .tbody tr {
+            padding: 10px;
+        }
+
+        /* Billing details header with padding */
+        .table th {
+            background-color: #4CAF50; /* Green background for header */
+            color: white;
+            padding: 12px; /* Increased padding */
+            border: none; /* Remove border for table header */
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light gray for even rows */
+        }
+
+        .table tr:hover {
+            background-color: #ddd; /* Darker gray for hover effect */
+        }
+
+        .total {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            text-align: right; /* Align to the right */
+        }
+
+        .currency-icon {
+            width: 10px; /* Set width for the currency icon */
+            vertical-align: middle; /* Align icon with text */
+            height: 10px;
+            margin-top: 3px;
+            margin-left: 5px; /* Add space between text and icon */
+        }
+           @page {
+            margin: 5px; /* Set top, right, bottom, and left margins to 10px */
+        }
+        body {
+            margin: 5px;
+        }
+
+        p{
+        margin:0px;
+        padding:0px;
+        }
+        .textAlign {
+    text-align: right; /* Float the element to the right */
+}
+        .customer-details{
+        width:200px;
+        }
+        .customer-details
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <table style="width:100%">
+        <tbody>
+        <td style="width:80%,margin-left:10px;padding-left:10px"> <p>289.2/365.A SRM thottam,</p>
+            <p>Shanmuganagar, Dhadhagapatty</p>
+            <p>Salem, Tamil Nadu, 636006</p>
+            <br/>
+        <p>Phone : 9566386962</p>
+        <p>Phone : shanjeyshanjey0@gmail.com</p></td>
+        <td style="width:10%">
+
+               <img src="images/locationInSVR.png" alt="Company Logo" width="100" height="100" />
+            </td>
+            </tbody>
+
+        </table>
+    </div>
+
+    <div class="bill-info">
+        <p style="width:100%;text-align:right"><strong style="width:90%;text-align:right;">Customer Name:</strong> <span style="width:10%;display: inline-block;text-align:left" th:text="${rideBookingDTO.customerName}"></span></p>
+        <p style="width:100%;text-align:right"><strong style="width:80%;text-align:right;">Bill Generation Date:</strong> <span style="width:20%;;text-align:left" th:text="${#dates.format(new java.util.Date(), 'dd-MMM-yyyy hh:mm:ss a')}"></span></p>
+    </div>
+
+    <h2>Taxi Service Bill</h2>
+
+    <h3>Basic Details</h3>
+    <table class="table">
+        <tbody class="tbody">
+        <tr>
+            <td style="background-color:#90d5ff">Pickup Location</td>
+            <td colspan="2"><span th:text="${rideBookingDTO.pickupLocation}"></span></td>
+
+            <td style="background-color:#90d5ff">Drop Location</td>
+            <td colspan="2"><span th:text="${rideBookingDTO.dropLocation}"></span></td>
+        </tr>
+        <tr>
+            <td style="background-color:#90d5ff">Pickup Date and Time</td>
+            <td colspan="2"><span th:text="${#temporals.format(rideBookingDTO.pickupDateTime, 'dd-MMM-yyyy hh:mm:ss a')}"></span></td>
+            <td style="background-color:#90d5ff">Return Date and Time</td>
+            <td colspan="2"><span th:text="${#temporals.format(rideBookingDTO.returnDateTime, 'dd-MMM-yyyy hh:mm:ss a')}"></span></td>
+
+        </tr>
+        <tr>
+            <td style="background-color:#90d5ff">Car Model</td>
+            <td colspan="5"><span th:text="${rideBookingDTO.carModel}"></span></td>
+        </tr>
+
+
+        <tr>
+            <td style="background-color:#90d5ff">Opening KM</td>
+            <td><span th:text="${rideBookingDTO.openingKM}"></span></td>
+            <td style="background-color:#90d5ff">Closing KM</td>
+            <td><span th:text="${rideBookingDTO.closingKM}"></span></td>
+            <td style="background-color:#90d5ff">Total KM</td>
+            <td><span th:text="${rideBookingDTO.closingKM - rideBookingDTO.openingKM}"></span></td>
+        </tr>
+        <tr>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Billing Details</h3>
+    <table class="table">
+        <thead class="thead">
+        <tr>
+            <th>Description</th>
+            <th>Single Price</th>
+            <th>Price</th>
+            <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody class="tbody">
+        <tr>
+            <td>Total Kilo Meters</td>
+            <td style="text-align: right;"><img src="images/inr.png" class="currency-icon" alt="Rupee Icon" /><span th:text="${rideBookingDTO.rentPerKM}"></span></td>
+        <td><span th:text="${rideBookingDTO.totalKM}"></span></td>
+        <td style="text-align: right;">
+            <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" />
+               <span th:text="${(rideBookingDTO.rentPerKM * rideBookingDTO.totalKM)}"></span>
+           </td>
+       </tr>
+       <tr>
+           <td>Rent</td>
+           <td style="text-align: right;">
+               <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" />
+               <span th:text="${rideBookingDTO.rentPerDay}"></span></td>
+           <td><span th:text="${rideBookingDTO.numberOfDays}"></span></td>
+           <td style="text-align: right;">
+                <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" />
+              <span th:text="${(rideBookingDTO.rentPerDay * rideBookingDTO.numberOfDays)}"></span>
+          </td>
+      </tr>
+      <tr>
+          <td>Driver Fee</td>
+          <td style="text-align: right;">
+             <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" />
+              <span th:text="${rideBookingDTO.driverFee}"></span></td>
+          <td><span></span></td>
+          <td style="text-align: right;">
+              <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" />
+                <span th:text="${rideBookingDTO.driverFee}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Toll Charge</td>
+            <td style="text-align: right;">
+               <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" />
+            <span th:text="${rideBookingDTO.tollCharge}"></span></td>
+            <td><span></span></td>
+            <td style="text-align: right;">
+                    <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" />
+                 <span th:text="${rideBookingDTO.tollCharge}"></span>
+             </td>
+         </tr>
+         <tr>
+             <td>Extra Charge</td>
+             <td style="text-align: right;">
+                 <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" />
+                   <span class="textAlign" th:text="${rideBookingDTO.extraCharge}"></span></td>
+               <td><span></span></td>
+               <td style="text-align: right;">
+                   <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" />
+               <span class="textAlign" th:text="${rideBookingDTO.extraCharge}"></span>
+           </td>
+       </tr>
+       </tbody>
+   </table>
+
+   <p class="total"><strong>Total Amount:</strong>
+     <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" />
+     <span th:text="${(
+       (rideBookingDTO.rentPerKM * rideBookingDTO.totalKM) +
+       rideBookingDTO.driverFee +
+       rideBookingDTO.tollCharge +
+       rideBookingDTO.extraCharge +
+       (rideBookingDTO.rentPerDay * rideBookingDTO.numberOfDays))}"></span>
+ </p>
+ <h3>Amount Details</h3>
+
+ <table class="table">
+     <thead class="thead">
+     <tr>
+         <th>Total Amount</th>
+         <th>Received Amount</th>
+         <th>Balance</th>
+     </tr>
+     </thead>
+     <tbody class="tbody">
+     <tr>
+         <td style="text-align: right;">
+             <!--<img src="images/inr.png" class="currency-icon" alt="Rupee Icon" /> -->
+
+            <span th:text="${(
+                                                                                                                (rideBookingDTO.rentPerKM * rideBookingDTO.totalKM) +
+                                                                                                                rideBookingDTO.driverFee +
+                                                                                                                rideBookingDTO.tollCharge +
+                                                                                                                rideBookingDTO.extraCharge +
+                                                                                                                (rideBookingDTO.rentPerDay * rideBookingDTO.numberOfDays))}"></span>
+        </td>
+        <td>
+            <!--    <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" /> -->
+                <span th:text="${(rideBookingDTO.receivedAmount)}"></span>
+            </td>
+            <td style="text-align: right;">
+              <!--  <img src="images/inr.png" class="currency-icon" alt="Rupee Icon" /> -->
+            <span th:text="${(
+                  (rideBookingDTO.rentPerKM * rideBookingDTO.totalKM) +
+                  rideBookingDTO.driverFee +
+                  rideBookingDTO.tollCharge +
+                  rideBookingDTO.extraCharge +
+                  (rideBookingDTO.rentPerDay * rideBookingDTO.numberOfDays)) - rideBookingDTO.receivedAmount }"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div style="margin-top:100px">
+   <tr style="width:100%;text-align:center;justify-content:center" >
+       <td style="width: 70%;">
+            <span >        <p style="margin: 0; font-weight: bold; font-size: 16px;">Thanks for choosing SVR Taxi services</p>
+        <p style="margin: 5px 0; font-size: 12px;"><a href="https://svrtaxi.netlify.app" style="text-decoration: none; color: #007BFF;">svrtaxi.netlify.app</a></p>
+    </span>
+       </td>
+       <td style="width: 30%;">
+
+    <span >
+        <p style="margin: 0; font-weight: bold;">For SVR Taxi Proprietor Manager</p>
+        <p style="margin: 5px 0; font-size: 14px; font-weight: bold;">Varatharajan . S</p>
+    </span>
+       </td>
+   </tr>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="20241019111033-1" author="gopinath">
+        <createTable tableName="ride_booking">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pickup_location" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="car_model" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="drop_location" type="VARCHAR(255)"/>
+            <column name="pickup_date_time" type="TIMESTAMP"/>
+            <column name="return_date_time" type="TIMESTAMP"/>
+            <column name="tour_destination" type="VARCHAR(255)"/>
+            <column name="number_of_days" type="DECIMAL(5,2)"/>
+            <column name="rent_per_km" type="DECIMAL(10,2)"/>
+            <column name="total_km" type="DECIMAL(10,2)"/>
+            <column name="driver_fee" type="DECIMAL(10,2)"/>
+            <column name="driver_name" type="VARCHAR(255)"/>
+            <column name="toll_charge" type="DECIMAL(10,2)"/>
+            <column name="received_amount" type="DECIMAL(10,2)"/>
+            <column name="opening_km" type="DECIMAL(10,2)"/>
+            <column name="closing_km" type="DECIMAL(10,2)"/>
+            <column name="extra_charge" type="DECIMAL(10,2)"/>
+            <column name="rent_per_day" type="DECIMAL(10,2)"/>
+            <column name="mode_of_payment" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

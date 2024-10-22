@@ -1,0 +1,12 @@
+{
+  "appsail": [
+    {
+      "source": "E:\\TaxiAppBackend",
+<<<<<<< HEAD
+      "name": "taxiapp"
+=======
+      "name": "AppSail"
+>>>>>>> 58afe9c (Add files via upload)
+    }
+  ]
+}
