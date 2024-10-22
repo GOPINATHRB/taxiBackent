@@ -17,7 +17,7 @@ public class DemoApplication {
 	//	messageSenderThread.sendMessage("Hello".getBytes());
 	}
 
-@Bean
+/*@Bean
 	public WebServerFactoryCustomizer<TomcatServletWebServerFactory> containerCustomizer() {
 		return container -> {
 			String port = System.getenv("X_ZOHO_CATALYST_LISTEN_PORT");
@@ -26,6 +26,6 @@ public class DemoApplication {
 			} else {
 				container.setPort(9000);
 			}
-		};
-	}
+		};*/
+	//}
 }
