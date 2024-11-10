@@ -47,16 +47,12 @@ public class MessageSenderResource {
 
 		try {
 
-//           Authentication authentication = authenticationManager.authenticate(
-//					new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
-//			);
-
 			System.out.println(loginRequest.getUsername()+" "+loginRequest.getPassword());
-			//messageSenderService.sendMessage();
-			//return "connected";
-			//return jwtAuthenticationFilter.generateToken("shanjeyshanjey0@gmail.com");
-		//	return "fkdfs";
-			return jwtUtil.generateToken(loginRequest.getUsername());
+
+			if(loginRequest.getUsername().equals("shanjeyshanjey0@gmail.com") && loginRequest.getPassword().equals("Gopinath0@")){
+				return jwtUtil.generateToken(loginRequest.getUsername());
+			}
+			return "invalid credentials"; 
 		} catch (AuthenticationException e) {
             throw new RuntimeException(e);
         }
