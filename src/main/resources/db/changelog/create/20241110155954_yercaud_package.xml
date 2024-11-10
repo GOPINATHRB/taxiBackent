@@ -1,0 +1,25 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="20241110160112" author="Gopinath">
+        <createTable tableName="yercaud_package">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="vehicle_type" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="drop_yercaud" type="DECIMAL(10, 2)"/>
+            <column name="drop_package" type="DECIMAL(10, 2)"/>
+            <column name="kilometer" type="DECIMAL(10, 2)"/>
+            <column name="amount" type="DECIMAL(10, 2)"/>
+            <column name="add_km" type="DECIMAL(10, 2)"/>
+            <column name="add_hours" type="DECIMAL(10, 2)"/>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>

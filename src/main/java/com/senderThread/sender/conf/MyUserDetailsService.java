@@ -19,21 +19,16 @@ public class MyUserDetailsService implements UserDetailsService {
 
 
 
-        static {
-            // Initialize BCryptPasswordEncoder
-            final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-            // Define raw password
-            String rawPassword = "password";
+    // Method to register a new user
+    public void registerUser(String username) {
+        String encodedPassword = passwordEncoder.encode("gopinath");
+        users.put(username, encodedPassword);
+    }
 
-            // Encode the password
-            String encodedPassword = passwordEncoder.encode(rawPassword);
 
-            // Store the username and encoded password
-            users.put("user", encodedPassword); // In a real application, retrieve from a database
-        }
 
-   
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

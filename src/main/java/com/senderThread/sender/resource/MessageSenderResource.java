@@ -1,11 +1,10 @@
-/*
+
 package com.senderThread.sender.resource;
 
 import com.fasterxml.jackson.annotation.JacksonInject;
 import com.senderThread.sender.conf.JwtAuthenticationFilter;
 import com.senderThread.sender.conf.JwtUtil;
 import com.senderThread.sender.domain.LoginRequest;
-import com.senderThread.sender.service.WhatsAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -33,8 +32,8 @@ public class MessageSenderResource {
 	private UserDetailsService userDetailsService;
 
 
-	@Autowired
-	private WhatsAppService whatsAppService;
+	/*@Autowired
+	private WhatsAppService whatsAppService;*/
 
 
 	@Autowired
@@ -47,13 +46,13 @@ public class MessageSenderResource {
 	public String login(@RequestBody LoginRequest loginRequest ) {
 
 		try {
-			*/
-/*Authentication authentication = authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
-			);*//*
+
+//           Authentication authentication = authenticationManager.authenticate(
+//					new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
+//			);
 
 			System.out.println(loginRequest.getUsername()+" "+loginRequest.getPassword());
-			messageSenderService.sendMessage();
+			//messageSenderService.sendMessage();
 			//return "connected";
 			//return jwtAuthenticationFilter.generateToken("shanjeyshanjey0@gmail.com");
 		//	return "fkdfs";
@@ -79,12 +78,12 @@ public class MessageSenderResource {
 		//return jwtAuthenticationFilter.generateToken("shanjeyshanjey0@gmail.com");
 	}
 
-    */
+
 /*
     * send business message via whatsapp using
     * mobile number
     *
-    * *//*
+    * */
 
 
 
@@ -92,7 +91,8 @@ public class MessageSenderResource {
 
 	@PostMapping("/send")
 	public String sendWhatsAppMessage(@RequestParam String to, @RequestParam String message) {
-		return whatsAppService.sendWhatsAppMessage(to, message);
+		//return whatsAppService.sendWhatsAppMessage(to, message);
+        return "message";
 	}
 
 
@@ -100,11 +100,10 @@ public class MessageSenderResource {
 	@PostMapping("/authenticate")
 	public String authenticate(@RequestBody LoginRequest authRequest) throws Exception {
 		try {
-			*/
-/*Authentication authentication = authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
-			);*//*
 
+         Authentication authentication = authenticationManager.authenticate(
+					new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
+			);
 			return "validation success";
 		} catch (AuthenticationException e) {
 			throw new Exception("Invalid username or password", e);
@@ -135,4 +134,3 @@ public class MessageSenderResource {
 
 }
 
-*/

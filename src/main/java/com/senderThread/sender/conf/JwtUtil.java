@@ -7,6 +7,7 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
+import javax.inject.Inject;
 import java.util.Date;
 
 
@@ -15,11 +16,15 @@ public class JwtUtil {
 
     private final SecretKey secretKey;
 
+    @Inject
+    private MyUserDetailsService userDetailsService;
+
     public JwtUtil() {
         // Generate a secure key for HS256
         this.secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     }
     public String generateToken(String username) {
+        userDetailsService.registerUser(username);
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())

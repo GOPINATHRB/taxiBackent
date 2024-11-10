@@ -37,7 +37,7 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/**").permitAll()
+                                .requestMatchers("/login","/teriff/package").permitAll()
                                 .anyRequest().authenticated() // All other endpoints require authentication
                 )
 

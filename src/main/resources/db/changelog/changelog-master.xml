@@ -8,4 +8,11 @@
 
 
     <include file="classpath:db/changelog/create/20241019110833-ride_booking.xml" relativeToChangelogFile="false"/>
+
+    <include file="classpath:db/changelog/create/20241110155845_local_package.xml" relativeToChangelogFile="false"/>
+
+    <include file="classpath:db/changelog/create/20241110155932_common_package.xml" relativeToChangelogFile="false"/>
+
+    <include file="classpath:db/changelog/create/20241110155954_yercaud_package.xml" relativeToChangelogFile="false"/>
+
 </databaseChangeLog>

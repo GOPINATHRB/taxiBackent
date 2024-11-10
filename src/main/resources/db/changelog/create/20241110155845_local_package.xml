@@ -1,0 +1,24 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="20241110160009" author="Gopinath">
+        <createTable tableName="local_package">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="vehicle_type" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_fourty_km" type="DECIMAL(10, 2)"/>
+            <column name="second_fourty_km" type="DECIMAL(10, 2)"/>
+            <column name="third_fourty_km" type="DECIMAL(10, 2)"/>
+            <column name="out_station_per_km" type="DECIMAL(10, 2)"/>
+            <column name="waiting_hours" type="DECIMAL(10, 2)"/>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>
