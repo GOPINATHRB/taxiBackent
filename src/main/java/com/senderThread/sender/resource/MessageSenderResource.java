@@ -48,10 +48,7 @@ public class MessageSenderResource {
 		try {
 
 			System.out.println(loginRequest.getUsername()+" "+loginRequest.getPassword());
-
-			vrsslm92@gmail.com
-
-			if(loginRequest.getUsername().equals("shanjeyshanjey0@gmail.com") && loginRequest.getPassword().equals("Gopinath0@") || loginRequest.getUsername().equals("vrsslm92@gmail.com") && loginRequest.getPassword().equals("vrsslm92") ){
+			if(loginRequest.getUsername().equals("shanjeyshanjey0@gmail.com") && loginRequest.getPassword().equals("Gopinath0@") || loginRequest.getUsername().equals("vrsslm92@gmail.com") && loginRequest.getPassword().equals("Mohitha@20") ){
 				return jwtUtil.generateToken(loginRequest.getUsername());
 			}
 			return "invalid credentials";
