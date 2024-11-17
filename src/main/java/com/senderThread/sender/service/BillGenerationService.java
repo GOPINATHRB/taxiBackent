@@ -38,7 +38,7 @@ public class BillGenerationService {
 
         RideBooking rideBooking = new RideBooking();
 
-        rideBooking.setCarModel("");
+        rideBooking.setCarModel(rideBookingDTO.getCarModel());
         rideBooking.setClosingKM(rideBookingDTO.getClosingKM());
         rideBooking.setCustomerName(rideBookingDTO.getCustomerName());
         rideBooking.setDriverFee(rideBookingDTO.getDriverFee());
