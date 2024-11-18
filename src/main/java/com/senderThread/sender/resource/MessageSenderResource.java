@@ -47,7 +47,6 @@ public class MessageSenderResource {
 
 		try {
 
-			System.out.println(loginRequest.getUsername()+" "+loginRequest.getPassword());
 			if(loginRequest.getUsername().equals("shanjeyshanjey0@gmail.com") && loginRequest.getPassword().equals("Gopinath0@") || loginRequest.getUsername().equals("vrsslm92@gmail.com") && loginRequest.getPassword().equals("Mohitha@20") ){
 				return jwtUtil.generateToken(loginRequest.getUsername());
 			}
