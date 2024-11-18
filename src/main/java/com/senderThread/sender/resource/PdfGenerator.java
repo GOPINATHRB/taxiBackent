@@ -18,6 +18,9 @@ import javax.inject.Inject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,6 +62,10 @@ public class PdfGenerator {
            Context context = new Context();
            context.setVariable("title", "Ride Bill");
            context.setVariable("rideBookingDTO", rideBookingDTO);
+
+           DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+
+           context.setVariable("billGeneratedDate",ZonedDateTime.now().format(formatter));
 
            // Render the HTML using Thymeleaf
            String renderedHtmlContent = templateEngine.process("pdf-template", context);

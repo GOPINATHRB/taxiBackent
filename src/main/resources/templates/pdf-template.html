@@ -139,7 +139,7 @@
 
     <div class="bill-info">
         <p style="width:100%;text-align:right"><strong style="width:90%;text-align:right;">Customer Name:</strong> <span style="width:10%;display: inline-block;text-align:left" th:text="${rideBookingDTO.customerName}"></span></p>
-        <p style="width:100%;text-align:right"><strong style="width:80%;text-align:right;">Bill Generation Date:</strong> <span style="width:20%;;text-align:left" th:text="${#dates.format(T(java.time.ZonedDateTime).now(T(java.time.ZoneId).of('Asia/Kolkata')), 'dd-MMM-yyyy hh:mm:ss a')}"></span></p>
+        <p style="width:100%;text-align:right"><strong style="width:80%;text-align:right;">Bill Generation Date:</strong> <span style="width:20%;;text-align:left" th:text="${billGeneratedDate}"></span></p>
     </div>
 
     <h2>SVR Taxi Service Bill</h2>
