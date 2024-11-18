@@ -53,7 +53,6 @@ public class PdfGenerator {
 
            // Process the ride booking details
            billGenerationService.processBillGenerationDetails(rideBookingDTO);
-           rideBookingDTO.setCarModel("");
            System.out.println("Processing ride booking details completed");
 
            // Set up Thymeleaf context
