@@ -7,11 +7,15 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+
 @SpringBootApplication
 public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
+
 		//MessageSenderThread messageSenderThread = new MessageSenderThread();
 		
 	//	messageSenderThread.sendMessage("Hello".getBytes());

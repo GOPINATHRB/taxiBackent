@@ -63,7 +63,7 @@ public class PdfGenerator {
            context.setVariable("title", "Ride Bill");
            context.setVariable("rideBookingDTO", rideBookingDTO);
 
-           DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+           DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss a");
 
            context.setVariable("billGeneratedDate",ZonedDateTime.now().format(formatter));
 
