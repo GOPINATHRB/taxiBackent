@@ -26,6 +26,15 @@ public class RideBookingDTO {
     private BigDecimal rentPerDay;
     private String modeOfPayment;
 
+    private String billGeneratedDate;
+
+    public String getBillGeneratedDate() {
+        return billGeneratedDate;
+    }
+
+    public void setBillGeneratedDate(String billGeneratedDate) {
+        this.billGeneratedDate = billGeneratedDate;
+    }
 
     public String getCustomerName() {
         return customerName;

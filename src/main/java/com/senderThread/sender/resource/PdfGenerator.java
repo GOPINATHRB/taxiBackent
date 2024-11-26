@@ -65,8 +65,9 @@ public class PdfGenerator {
 
            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss a");
 
-           context.setVariable("billGeneratedDate",ZonedDateTime.now().format(formatter));
+           context.setVariable("billGeneratedDate",rideBookingDTO.getBillGeneratedDate());
 
+           System.out.println("Data : " + ZonedDateTime.now().format(formatter));
            // Render the HTML using Thymeleaf
            String renderedHtmlContent = templateEngine.process("pdf-template", context);
 
